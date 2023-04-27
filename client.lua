@@ -50,7 +50,7 @@ function GetRepairPrice2()
 end
 
 
-function BennyEngineRepair()
+function EngineRepair()
     local plyPed = PlayerPedId()
     local plyVeh = GetVehiclePedIsIn(plyPed, false)
     local getFuel = GetVehicleFuelLevel(plyVeh)
@@ -69,7 +69,7 @@ function BennyEngineRepair()
     TriggerEvent('veh.randomDegredation',10,plyVeh,3)
 end
 
-function BennyBodyRepair()
+function BodyRepair()
     local plyPed = PlayerPedId()
     local plyVeh = GetVehiclePedIsIn(plyPed, false)
     local getFuel = GetVehicleFuelLevel(plyVeh)
@@ -115,7 +115,7 @@ RegisterNetEvent('ks-repair:client:repair', function()
                 disableMouse = false,
                 disableCombat = true,
             }, {}, {}, {}, function() -- Done
-                BennyEngineRepair()
+                EngineRepair()
                 QBCore.Functions.Progressbar("open_locker_drill", "Body Repairing...", math.random(5000, 7000), false, true, {
                     disableMovement = true,
                     disableCarMovement = true,
@@ -123,7 +123,7 @@ RegisterNetEvent('ks-repair:client:repair', function()
                     disableCombat = true,
                 }, {}, {}, {}, function() -- Done
                     Wait(100)
-                    BennyBodyRepair()
+                    BodyRepair()
                 end, function() -- Cancel
                     QBCore.Functions.Notify("Canceled..", "error")
                 end)
