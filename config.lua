@@ -1,6 +1,7 @@
 Config = Config or {}
 
-
+Config.ESX = "es_extended"
+Config.QBCore = "qb-core"
 
 
 Config.Stations = {
